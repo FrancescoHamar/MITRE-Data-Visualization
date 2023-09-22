@@ -48,6 +48,9 @@ def mitigation_pairing(reverse):
     return mitigation_map
 
 
+# Returns HashMap/dictionary with attacks as keys and a list of associated data sources.
+# Some attacks might have the same data source but from a different link, so it's possible to have the lists url
+# specific or more generic. URL specific is preferred here for more accuracy
 def attacks_to_sources(weighted):
     attacks_map = {}
     queriedAttacks = src.query([Filter("type", "=", "attack-pattern")])
@@ -64,7 +67,12 @@ def attacks_to_sources(weighted):
                 if source["name"] not in attacks_map[attack["id"]]:
                     attacks_map[attack["id"]].append(source["name"])
 
+    return attacks_map
 
+
+# Returns HashMap/dictionary with data sources as keys and a list of associated attacks.
+# Some attacks might have the same data source but from a different link, so it's possible to have the lists url
+# specific or more generic. URL generic is preferred here because we are more interested in the names
 def sources_to_attacks(weighted):
     source_map = {}
     queriedAttacks = src.query([Filter("type", "=", "attack-pattern")])
@@ -85,6 +93,8 @@ def sources_to_attacks(weighted):
                     source_map[source["name"]] = [attack["id"]]
                 else:
                     source_map[source["name"]].append(attack["id"])
+
+    return source_map
 
 
 src = select_src("mobile_attack")
