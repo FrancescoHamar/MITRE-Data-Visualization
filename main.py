@@ -31,15 +31,15 @@ def combine_src():
 # unique and appendable can either be "source_ref" or "target_ref" which refer to json attributes
 def mitigation_pairing(reverse):
     if reverse:
-        unique="target_ref"
-        appendable="source_ref"
+        unique = "target_ref"
+        appendable = "source_ref"
     else:
         unique = "source_ref"
         appendable = "target_ref"
 
     mitigation_map = {}
-    relations = src.query([Filter("type", "=", "relationship")],
-                          Filter('relationship_type', '=', "mitigates"))
+    relations = src.query([Filter("type", "=", "relationship"),
+                          Filter('relationship_type', '=', "mitigates")])
     for rel in relations:
         if rel[unique] in mitigation_map.keys():
             mitigation_map[rel[unique]].append(rel[appendable])
@@ -49,16 +49,5 @@ def mitigation_pairing(reverse):
     return mitigation_map
 
 
-
-src = select_src("enterprise_attack")
-src = combine_src()
-
-
-mitigations = src.query( [Filter("type", "=", "course-of-action")] )
-names = []
-for i in mitigations:
-    names.append(i["name"])
-
-
-
-print([item for item, count in collections.Counter(names).items() if count > 1])
+src = select_src("mobile_attack")
+print(mitigation_pairing(False))
