@@ -1,0 +1,28 @@
+MITRE DATA Viewer
+
+Accessing Mitre Database through stix:
+ - Language choice: Python, supported through stix2 library
+ - Choosing how to access: Download all data vs Live access (email mentioned scraping or servers so i used live data)
+
+Learning Stix and Taxi
+ - Understanding how objects are queried
+ - Understanding Filtering
+ - Problem! TAXII Server Response with different amount of objects! Setting per_request=13  
+	- https://github.com/OTRF/ATTACK-Python-Client/issues/43  || Seems to not be an issue as manual checks confirm the results
+
+Understanding File format
+ - Figuring out types and relationships
+ - Mitigation types between files change id. For example "Data Loss Prevention" course of action, will have a different id in 
+enterprise and in ics for example. This holds for both stix and att&ck Ids.
+ - Figuring out relationships
+
+About the problem in particular:
+ - After having looked through all of the above and thinking about code formatting this is conclusion:
+	- Query relationships between mitigation and techniques : Hashmap from target to source and viceversa
+	- Find link between sources and attacks
+
+
+
+Code Formatting
+ - Parsing sources combined vs one by one. Duplication pushes me towards handling everything one by one
+ - Abstracting finding relationships by mitigation and by attack technique

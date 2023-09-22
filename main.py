@@ -49,5 +49,8 @@ def mitigation_pairing(reverse):
     return mitigation_map
 
 
+def 
+
+
 src = select_src("mobile_attack")
 print(mitigation_pairing(False))
