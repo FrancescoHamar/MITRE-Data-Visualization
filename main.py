@@ -1,7 +1,6 @@
 from taxii2client.v20 import Server, Collection
 from stix2 import Filter, TAXIICollectionSource, CompositeDataSource
-import collections
-
+from DataSources import DataSources
 
 attacks = {
     "enterprise_attack": "95ecc380-afe9-11e4-9b6c-751b66dd541e",
@@ -49,7 +48,43 @@ def mitigation_pairing(reverse):
     return mitigation_map
 
 
-def 
+def attacks_to_sources(weighted):
+    attacks_map = {}
+    queriedAttacks = src.query([Filter("type", "=", "attack-pattern")])
+
+    if weighted:
+        for attack in queriedAttacks:
+            attacks_map[attack["id"]] = []
+            for source in attack["external_references"]:
+                attacks_map[attack["id"]].append(DataSources(source["name"], source["url"]))
+    else:
+        for attack in queriedAttacks:
+            attacks_map[attack["id"]] = []
+            for source in attack["external_references"]:
+                if source["name"] not in attacks_map[attack["id"]]:
+                    attacks_map[attack["id"]].append(source["name"])
+
+
+def sources_to_attacks(weighted):
+    source_map = {}
+    queriedAttacks = src.query([Filter("type", "=", "attack-pattern")])
+
+    if weighted:
+        for attack in queriedAttacks:
+            for source in attack["external_references"]:
+                current = DataSources(source["name"], source["url"])
+                if current not in source_map.keys():
+                    source_map[current] = [attack["id"]]
+                else:
+                    source_map[current].append(attack["id"])
+
+    else:
+        for attack in queriedAttacks:
+            for source in attack["external_references"]:
+                if source["name"] not in source_map.keys():
+                    source_map[source["name"]] = [attack["id"]]
+                else:
+                    source_map[source["name"]].append(attack["id"])
 
 
 src = select_src("mobile_attack")

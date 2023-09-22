@@ -19,10 +19,14 @@ enterprise and in ics for example. This holds for both stix and att&ck Ids.
 About the problem in particular:
  - After having looked through all of the above and thinking about code formatting this is conclusion:
 	- Query relationships between mitigation and techniques : Hashmap from target to source and viceversa
-	- Find link between sources and attacks
-
+	- Find link between datasources and attacks
+ - Quite unsure whether the datasources refer to the external references, but I will assume so after not having found anything better
+	- Resources appear repeated sometimes, as multiple articles are used from certain sources, this could call for multiple logging
+of the resources per item, or simply count them as one
 
 
 Code Formatting
  - Parsing sources combined vs one by one. Duplication pushes me towards handling everything one by one
  - Abstracting finding relationships by mitigation and by attack technique
+ - I believe that the above comment does not hold for the external references to attack link as it is a different relation and hierarchy
+ - Should I use a class for external resources to contain both name and url, or simply count the resources per name (?)
