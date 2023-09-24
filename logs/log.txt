@@ -14,7 +14,7 @@ Understanding File format
  - Figuring out types and relationships
  - Mitigation types between files change id. For example "Data Loss Prevention" course of action, will have a different id in 
 enterprise and in ics for example. This holds for both stix and att&ck Ids.
- - Figuring out relationships
+ - Figuring out relationships: no Sql like Json with objects of type relation which connect other objects
 
 About the problem in particular:
  - After having looked through all of the above and thinking about code formatting this is conclusion:
@@ -30,3 +30,4 @@ Code Formatting
  - Abstracting finding relationships by mitigation and by attack technique
  - I believe that the above comment does not hold for the external references to attack link as it is a different relation and hierarchy
  - Should I use a class for external resources to contain both name and url, or simply count the resources per name (?)
+ - Some External references do not have a url, I will have to null the url 

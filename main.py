@@ -1,7 +1,9 @@
-from taxii2client.v20 import Server, Collection
+from taxii2client.v20 import Collection
 from stix2 import Filter, TAXIICollectionSource, CompositeDataSource
 from DataSources import DataSources
 
+
+# Stores collection url IDs of different type of attacks
 attacks = {
     "enterprise_attack": "95ecc380-afe9-11e4-9b6c-751b66dd541e",
     "mobile_attack": "2f669986-b40b-4423-b720-4396ca6a462b",
@@ -9,11 +11,16 @@ attacks = {
 }
 
 
+# Switches the source (src) given the input string which has to match
+# "enterprise_attack", "mobile_attack", or "ics_attack"
+# It returns a TAZIICollectionSource Object
 def select_src(attack):
     collection = Collection(f"https://cti-taxii.mitre.org/stix/collections/{attacks[attack]}/")
     return TAXIICollectionSource(collection)
 
 
+# Switches the source (src) to query all three database files (Enterprise, Mobile, ICS)
+# It returns a CompositeDataSource Object
 def combine_src():
     fullsrc = CompositeDataSource()
     collection = Collection(f"https://cti-taxii.mitre.org/stix/collections/{attacks['enterprise_attack']}/")
@@ -26,7 +33,7 @@ def combine_src():
     return fullsrc
 
 
-# Makes dictionary where relationship are stored either from target to source or vice versa depending on param
+# Makes Hashmap/Dictionary where relationship are stored either from target to source or vice versa depending on param
 # unique and appendable can either be "source_ref" or "target_ref" which refer to json attributes
 def mitigation_pairing(reverse):
     if reverse:
@@ -59,13 +66,17 @@ def attacks_to_sources(weighted):
         for attack in queriedAttacks:
             attacks_map[attack["id"]] = []
             for source in attack["external_references"]:
-                attacks_map[attack["id"]].append(DataSources(source["name"], source["url"]))
+                try:
+                    current = DataSources(source["source_name"], source["url"])
+                except KeyError:
+                    current = DataSources(source["source_name"], None)
+                attacks_map[attack["id"]].append(current)
     else:
         for attack in queriedAttacks:
             attacks_map[attack["id"]] = []
             for source in attack["external_references"]:
-                if source["name"] not in attacks_map[attack["id"]]:
-                    attacks_map[attack["id"]].append(source["name"])
+                if source["source_name"] not in attacks_map[attack["id"]]:
+                    attacks_map[attack["id"]].append(source["source_name"])
 
     return attacks_map
 
@@ -80,7 +91,10 @@ def sources_to_attacks(weighted):
     if weighted:
         for attack in queriedAttacks:
             for source in attack["external_references"]:
-                current = DataSources(source["name"], source["url"])
+                try:
+                    current = DataSources(source["source_name"], source["url"])
+                except KeyError:
+                    current = DataSources(source["source_name"], None)
                 if current not in source_map.keys():
                     source_map[current] = [attack["id"]]
                 else:
@@ -89,13 +103,13 @@ def sources_to_attacks(weighted):
     else:
         for attack in queriedAttacks:
             for source in attack["external_references"]:
-                if source["name"] not in source_map.keys():
-                    source_map[source["name"]] = [attack["id"]]
+                if source["source_name"] not in source_map.keys():
+                    source_map[source["source_name"]] = [attack["id"]]
                 else:
-                    source_map[source["name"]].append(attack["id"])
+                    source_map[source["source_name"]].append(attack["id"])
 
     return source_map
 
 
 src = select_src("mobile_attack")
-print(mitigation_pairing(False))
+print(attacks_to_sources(True))
