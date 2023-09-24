@@ -33,26 +33,19 @@ def combine_src():
     return fullsrc
 
 
-# Makes Hashmap/Dictionary where relationship are stored either from target to source or vice versa depending on param
-# unique and appendable can either be "source_ref" or "target_ref" which refer to json attributes
-def mitigation_pairing(reverse):
-    if reverse:
-        unique = "target_ref"
-        appendable = "source_ref"
-    else:
-        unique = "source_ref"
-        appendable = "target_ref"
-
-    mitigation_map = {}
-    relations = src.query([Filter("type", "=", "relationship"),
-                          Filter('relationship_type', '=', "mitigates")])
-    for rel in relations:
-        if rel[unique] in mitigation_map.keys():
-            mitigation_map[rel[unique]].append(rel[appendable])
+# Makes Hashmap/Dictionary where relationship are stored either from target to source or vice versa depending on params.
+# Relation type defines what kind of relations is getting mapped
+def relations(source, target, reltype):
+    relation_map = {}
+    query_relations = src.query([Filter("type", "=", "relationship"),
+                          Filter('relationship_type', '=', reltype)])
+    for rel in query_relations:
+        if rel[source] in relation_map.keys():
+            relation_map[rel[source]].append(rel[target])
         else:
-            mitigation_map[rel[unique]] = [rel[appendable]]
+            relation_map[rel[source]] = [rel[target]]
 
-    return mitigation_map
+    return relation_map
 
 
 # Returns HashMap/dictionary with attacks as keys and a list of associated data sources.
@@ -109,6 +102,26 @@ def sources_to_attacks(weighted):
                     source_map[source["source_name"]].append(attack["id"])
 
     return source_map
+
+
+# Calls and returns relations of type mitigation as mitigation to technique
+def mitigate_to_technique():
+    return relations("source_ref", "target_ref", "mitigates")
+
+
+# Calls and returns relations of type mitigation as technique to mitigation
+def technique_to_mitigate():
+    return relations("target_ref", "source_ref", "mitigates")
+
+
+# Calls and returns relations of type detection as data source to technique
+def datasource_to_technique():
+    return relations("source_ref", "target_ref", "detects")
+
+
+# Calls and returns relations of type mitigation as technique to data source
+def technique_to_datasource():
+    return relations("target_ref", "source_ref", "detects")
 
 
 src = select_src("mobile_attack")

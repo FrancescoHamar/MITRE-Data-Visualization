@@ -23,6 +23,9 @@ About the problem in particular:
  - Quite unsure whether the datasources refer to the external references, but I will assume so after not having found anything better
 	- Resources appear repeated sometimes, as multiple articles are used from certain sources, this could call for multiple logging
 of the resources per item, or simply count them as one
+ - Quite sadly, when I got to the killchain mapping part I realized that there exists an object called x-mitre-data-component which is
+a data source that detects the attack techniques. This made much more sense with the assignment so I will keep existing code for the
+external resources.
 
 
 Code Formatting
@@ -30,4 +33,6 @@ Code Formatting
  - Abstracting finding relationships by mitigation and by attack technique
  - I believe that the above comment does not hold for the external references to attack link as it is a different relation and hierarchy
  - Should I use a class for external resources to contain both name and url, or simply count the resources per name (?)
- - Some External references do not have a url, I will have to null the url 
+ - Some External references do not have a url, I will have to null the url
+ - I will reformat slightly the code that check the technique-mitigation relationship to fit any kind of relationship, and call functions
+to assign target, source, and relation type variables to avoid runtime errors
