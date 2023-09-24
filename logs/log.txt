@@ -36,3 +36,8 @@ Code Formatting
  - Some External references do not have a url, I will have to null the url
  - I will reformat slightly the code that check the technique-mitigation relationship to fit any kind of relationship, and call functions
 to assign target, source, and relation type variables to avoid runtime errors
+
+
+Output
+ - Starting out by visualizing data in bar plots in descending order with keys and number of associated values to answer questions 
+graphically

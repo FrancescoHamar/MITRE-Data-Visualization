@@ -1,6 +1,7 @@
 from taxii2client.v20 import Collection
 from stix2 import Filter, TAXIICollectionSource, CompositeDataSource
 from DataSources import DataSources
+import matplotlib.pyplot as plt
 
 
 # Stores collection url IDs of different type of attacks
@@ -124,5 +125,20 @@ def technique_to_datasource():
     return relations("target_ref", "source_ref", "detects")
 
 
+# Displays keys of dict with the number of the associated values in descending order, limited at the limit param.
+def display_single(reldict, limit):
+    keys = sorted(reldict, key=lambda k: len(reldict[k]), reverse=True)
+    valueLen = []
+    keys = keys[:limit]
+    for key in keys:
+        valueLen.append(len(reldict[key]))
+
+    for k in range(limit):
+        keys[k] = src.get(keys[k])["name"]
+
+    plt.barh(keys, valueLen)
+    plt.show()
+
+
 src = select_src("mobile_attack")
-print(attacks_to_sources(True))
+display_single(technique_to_mitigate(), 10)
