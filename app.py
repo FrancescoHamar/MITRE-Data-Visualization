@@ -9,7 +9,7 @@ dropdown = dcc.Dropdown(["1", "2", "3", "4"], "1", clearable=False)
 graph = dcc.Graph()
 
 app.layout = html.Div([
-    html.H1(children='Title of Dash App', style={'textAlign':'center'}),
+    html.H1(children='Mitre Data Visualization', style={'textAlign':'center'}),
     dcc.Loading(
         id="loading-1",
         type="default",
@@ -34,7 +34,7 @@ def update_bar_chart(day):
 
 source = Dap.DataAccessPoint("ics_attack")
 source.display_single(source.technique_to_mitigate(), 10)
-with open("data/mit_tech.json", 'r') as indata:
+with open("data/mit_tech_m.json", 'r') as indata:
     indict = json.load(indata)
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ class DataAccessPoint:
 
     def __init__(self, *args):
         self.src = None
+        self.attack = "_all"
         if len(args) == 0:
             self.combine_src()
         elif len(args) == 1 and \
@@ -17,6 +18,7 @@ class DataAccessPoint:
                  args[0] == "mobile_attack" or
                  args[0] == "ics_attack"):
             self.select_src(args[0])
+            self.attack = args[0]
         else:
             raise ValueError("Illegal Argument Exception. Args expected: 0 or 1 string. Must match enterprise, mobile or ics attack as: type_attack. Ex.: ics_attack")
 
@@ -163,7 +165,7 @@ class DataAccessPoint:
             keys[k] = self.src.get(keys[k])["name"]
             outDict[keys[k]] = valueLen[k]
 
-        with open("data/mit_tech.json", 'w') as out:
+        with open("data/mit_tech_m.json", 'w') as out:
             json.dump(outDict, out)
 
         # plt.barh(keys, valueLen)
