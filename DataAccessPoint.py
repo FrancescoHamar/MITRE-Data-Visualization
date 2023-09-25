@@ -1,7 +1,9 @@
 from taxii2client.v20 import Collection
 from stix2 import Filter, TAXIICollectionSource, CompositeDataSource
 from DataSources import DataSources
+import json
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 class DataAccessPoint:
@@ -147,7 +149,10 @@ class DataAccessPoint:
     # Displays keys of dict with the number of the associated values in descending order, limited at the limit param.
     def display_single(self, reldict, limit):
         keys = sorted(reldict, key=lambda k: len(reldict[k]), reverse=True)
+
         valueLen = []
+        outDict = {}
+
         keys = keys[:limit]
         keys = keys[::-1]
 
@@ -156,6 +161,11 @@ class DataAccessPoint:
 
         for k in range(limit):
             keys[k] = self.src.get(keys[k])["name"]
+            outDict[keys[k]] = valueLen[k]
 
-        plt.barh(keys, valueLen)
-        plt.show()
+        with open("data/mit_tech.json", 'w') as out:
+            json.dump(outDict, out)
+
+        # plt.barh(keys, valueLen)
+        # plt.show()
+        # return keys, valueLen

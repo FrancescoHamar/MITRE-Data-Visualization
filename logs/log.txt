@@ -36,8 +36,16 @@ Code Formatting
  - Some External references do not have a url, I will have to null the url
  - I will reformat slightly the code that check the technique-mitigation relationship to fit any kind of relationship, and call functions
 to assign target, source, and relation type variables to avoid runtime errors
+ - Reformatting all logic to a Data Access Point class
 
 
 Output
  - Starting out by visualizing data in bar plots in descending order with keys and number of associated values to answer questions 
 graphically
+ - Big Issues: Way too slow computations and waiting times for server, O(n^2) everywhere. Accessing data from server at multiple instances (maybe I should've just downloaded the json files and read locally :( )
+ - Regardless of this I will continue with a webapp, hoping that passing graphs over will work with something like flask
+
+Webapp
+ - Using Dash for data visualization
+ - It takes waaay too long to load in the data, webapp has to load for too much time. I am considering preloading the data and displaying from there on presentation
+
