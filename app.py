@@ -5,10 +5,9 @@ import JsonLocalAccess as Jla
 
 app = Dash(__name__)
 
-dropdown1 = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Choose Type of Attacks",
-                        clearable=False)
+dropdown1 = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Ics Attacks", clearable=False)
 dropdown2 = dcc.Dropdown(["Techniques per Mitigation", "Mitigations per Technique", "Techniques per Data source",
-                         "Data sources per Technique"], "Choose Type of Relation", clearable=False)
+                         "Data sources per Technique"], "Techniques per Mitigation", clearable=False)
 graph = dcc.Graph()
 
 app.layout = html.Div([
@@ -18,7 +17,7 @@ app.layout = html.Div([
         type="default",
         children=html.Div(id="loading-output-1")
     ),
-    html.Div([html.H4("Effectiveness by the numbers"), dropdown2, graph])])
+    html.Div([html.H4("Effectiveness by the numbers"), dropdown1, dropdown2, graph])])
 
 
 def update_enterprise():
@@ -59,32 +58,52 @@ def update_ics():
 
 def get_ics(graph_num):
     match graph_num:
-        case 1:
+        case "Techniques per Mitigation":
             return Jla.access_mit_tech_i(False)
-        case 2:
+        case "Mitigations per Technique":
             return Jla.access_tech_mit_i(False)
-        case 3:
+        case "Techniques per Data source":
             return Jla.access_comp_tech_i(False)
-        case 4:
+        case "Data sources per Technique":
             return Jla.access_tech_comp_i(False)
 
 
-@callback(Output(graph, "figure"), Input(dropdown2, "value"))
-def update_bar_chart(value):
-    fig = None
-    match value:
+def get_enterprise(graph_num):
+    match graph_num:
         case "Techniques per Mitigation":
-            graph_data = get_ics(1)
-            fig = px.bar(x=graph_data.keys(), y=graph_data.values())
+            return Jla.access_mit_tech_e(False)
         case "Mitigations per Technique":
-            graph_data = get_ics(2)
-            fig = px.bar(x=graph_data.keys(), y=graph_data.values())
+            return Jla.access_tech_mit_e(False)
         case "Techniques per Data source":
-            graph_data = get_ics(3)
-            fig = px.bar(x=graph_data.keys(), y=graph_data.values())
+            return Jla.access_comp_tech_e(False)
         case "Data sources per Technique":
-            graph_data = get_ics(4)
-            fig = px.bar(x=graph_data.keys(), y=graph_data.values())
+            return Jla.access_tech_comp_e(False)
+
+
+def get_mobile(graph_num):
+    match graph_num:
+        case "Techniques per Mitigation":
+            return Jla.access_mit_tech_m(False)
+        case "Mitigations per Technique":
+            return Jla.access_tech_mit_m(False)
+        case "Techniques per Data source":
+            return Jla.access_comp_tech_m(False)
+        case "Data sources per Technique":
+            return Jla.access_tech_comp_m(False)
+
+
+@callback(Output(graph, "figure"), Input(dropdown1, 'value'), Input(dropdown2, 'value'))
+def update_bar_chart(attack_type, relation_type):
+    fig = None
+    graph_data = None
+    match attack_type:
+        case "Ics Attacks":
+            graph_data = get_ics(relation_type)
+        case "Mobile Attacks":
+            graph_data = get_mobile(relation_type)
+        case "Enterprise Attacks":
+            graph_data = get_enterprise(relation_type)
+    fig = px.bar(x=graph_data.keys(), y=graph_data.values())
     return fig
 
 
