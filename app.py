@@ -32,13 +32,14 @@ def update_bar_chart(day):
     return fig
 
 
-source = Dap.DataAccessPoint("mobile_attack")
+source = Dap.DataAccessPoint()
+source.src_enterprise()
 keyVals = source.get_key_values(source.mitigate_to_technique(), 50)
-Jla.access_mit_tech_m(True, data=keyVals)
+Jla.access_mit_tech_e(True, data=keyVals)
 keyVals = source.get_key_values(source.technique_to_mitigate(), 50)
-Jla.access_tech_mit_m(True, data=keyVals)
+Jla.access_tech_mit_e(True, data=keyVals)
 keyVals = source.get_key_values(source.datasource_to_technique(), 50)
-Jla.access_comp_tech_m(True, data=keyVals)
+Jla.access_comp_tech_e(True, data=keyVals)
 keyVals = source.get_key_values(source.technique_to_datasource(), 50)
-Jla.access_tech_comp_m(True, data=keyVals)
+Jla.access_tech_comp_e(True, data=keyVals)
 

@@ -18,7 +18,8 @@ class DataAccessPoint:
                  args[0] == "ics_attack"):
             self.select_src(args[0])
         else:
-            raise ValueError("Illegal Argument Exception. Args expected: 0 or 1 string. Must match enterprise, mobile or ics attack as: type_attack. Ex.: ics_attack")
+            raise ValueError("Illegal Argument Exception. Args expected: 0 or 1 string. "
+                             "Must match enterprise, mobile or ics attack as: type_attack. Ex.: ics_attack")
 
     # Stores collection url IDs of different type of attacks
     attacks = {
@@ -37,7 +38,7 @@ class DataAccessPoint:
     # Connects to enterprise attacks file
     # It returns a TAZIICollectionSource Object
     def src_enterprise(self):
-        return self.select_src("entreprise_attack")
+        return self.select_src("enterprise_attack")
 
     # Connects to mobile attacks file
     # It returns a TAZIICollectionSource Object
