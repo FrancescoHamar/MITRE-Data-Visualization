@@ -40,17 +40,17 @@ def update_ics():
 
 def update_phase_enterprise():
     source = Dap.DataAccessPoint("enterprise_attack")
-    key_vals = source.get_technique_phase()
-    Jla.update_phases('e', key_vals)
+    tech, mit, source = source.get_technique_phase()
+    Jla.update_phases('e', tech, mit, source)
 
 
 def update_phase_mobile():
     source = Dap.DataAccessPoint("mobile_attack")
-    key_vals = source.get_technique_phase()
-    Jla.update_phases('m', key_vals)
+    tech, mit, source = source.get_technique_phase()
+    Jla.update_phases('m', tech, mit, source)
 
 
 def update_phase_ics():
     source = Dap.DataAccessPoint("ics_attack")
-    key_vals = source.get_technique_phase()
-    Jla.update_phases('i', key_vals)
+    tech, mit, source = source.get_technique_phase()
+    Jla.update_phases('i', tech, mit, source)

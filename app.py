@@ -1,6 +1,7 @@
 from dash import Dash, dcc, html, Input, Output, callback
 import plotly.express as px
 import JsonLocalAccess as Jla
+import Update
 
 app = Dash(__name__, external_stylesheets=["assets/styles.css"])
 
@@ -56,5 +57,10 @@ def update_bar_chart(attack_type, relation_type, limit):
     return fig
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+Update.update_phase_mobile()
+Update.update_phase_enterprise()
+Update.update_phase_ics()
+
+
+# if __name__ == '__main__':
+#     app.run(debug=True)

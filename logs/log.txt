@@ -73,5 +73,7 @@ Kill Chain
 many techniques, d.s, and mitigations there are in each phase.
  - There will be some errors with some mitigations that only appear in certain phases but will be counted for all phases associated to the technique 
 that they mitigate (same for ds)
+ - I just let my code parse the data for one hour for this and while it's still running as I write this, I realized I'm counting double. This was a hard
+ lesson on efficient code and not having downloaded and set up locally the json files
 
 

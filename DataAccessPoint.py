@@ -175,22 +175,45 @@ class DataAccessPoint:
 
     # Get techniques per kill phase
     def get_technique_phase(self):
-        phases = {}
+        technique_phase = {}
+        mitigation_phase = {}
+        datacomp_phase = {}
+        mit_temp = []
+        source_temp = []
         query_techniques = self.src.query([Filter("type", "=", "attack-pattern")])
+        query_mitigations = self.src.query([Filter("type", "=", "relationship"),
+                                            Filter('relationship_type', '=', "mitigates")])
+        query_components = self.src.query([Filter("type", "=", "relationship"),
+                                           Filter('relationship_type', '=', "detects")])
+
         for technique in query_techniques:
-            query_mitigations = self.src.query([Filter("type", "=", "relationship"),
-                                                Filter('relationship_type', '=', "mitigates"),
-                                                Filter("target_ref", "=", technique["id"])])
+            for mit in query_mitigations:
+                if mit["target_ref"] == technique["id"]:
+                    mit_temp.append(mit["source_ref"])
 
-            query_components = self.src.query([Filter("type", "=", "relationship"),
-                                               Filter('relationship_type', '=', "detects"),
-                                               Filter("target_ref", "=", technique["id"])])
+            for source in query_components:
+                if source["target_ref"] == technique["id"]:
+                    source_temp.append(source["source_ref"])
 
-            for phase in technique["kill_chain_phases"]:
-                if phases[phase["name"]] is None:
-                    phases[phase["name"]] = [1, len(query_mitigations), len(query_components)]
-                else:
-                    phases[phase["name"]][0] += 1
-                    phases[phase["name"]][1] += len(query_mitigations)
-                    phases[phase["name"]][2] += len(query_components)
-        return phases
+            if "kill_chain_phases" in technique.keys():
+                for phase in technique["kill_chain_phases"]:
+                    if phase["phase_name"] not in technique_phase.keys():
+                        technique_phase[phase["phase_name"]] = [technique["name"]]
+                    else:
+                        technique_phase[phase["phase_name"]].append(technique["name"])
+
+                    if phase["phase_name"] not in mitigation_phase.keys():
+                        mitigation_phase[phase["phase_name"]] = mit_temp
+                    else:
+                        for mitigation in mit_temp:
+                            if mitigation not in mitigation_phase[phase["phase_name"]]:
+                                mitigation_phase[phase["phase_name"]].append(mitigation)
+
+                    if phase["phase_name"] not in datacomp_phase.keys():
+                        datacomp_phase[phase["phase_name"]] = source_temp
+                    else:
+                        for source in source_temp:
+                            if source not in datacomp_phase[phase["phase_name"]]:
+                                datacomp_phase[phase["phase_name"]].append(source)
+
+        return technique_phase, mitigation_phase, datacomp_phase
