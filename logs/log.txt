@@ -26,6 +26,7 @@ of the resources per item, or simply count them as one
  - Quite sadly, when I got to the killchain mapping part I realized that there exists an object called x-mitre-data-component which is
 a data source that detects the attack techniques. This made much more sense with the assignment so I will keep existing code for the
 external resources.
+ - Big Decision of saving data of top 50 results in json files and pulling data from there to populate graphs. I will include the possibility to refresh the data in the app
 
 
 Code Formatting

@@ -10,7 +10,6 @@ class DataAccessPoint:
 
     def __init__(self, *args):
         self.src = None
-        self.attack = "_all"
         if len(args) == 0:
             self.combine_src()
         elif len(args) == 1 and \
@@ -18,7 +17,6 @@ class DataAccessPoint:
                  args[0] == "mobile_attack" or
                  args[0] == "ics_attack"):
             self.select_src(args[0])
-            self.attack = args[0]
         else:
             raise ValueError("Illegal Argument Exception. Args expected: 0 or 1 string. Must match enterprise, mobile or ics attack as: type_attack. Ex.: ics_attack")
 
@@ -64,7 +62,8 @@ class DataAccessPoint:
         fullsrc.add_data_sources([enterpriseSrc, mobileSrc, icsSrc])
         self.src = fullsrc
 
-    # Makes Hashmap/Dictionary where relationship are stored either from target to source or vice versa depending on params.
+    # Makes Hashmap/Dictionary where relationship are stored either from target to source or vice versa depending
+    # on params.
     # Relation type defines what kind of relations is getting mapped
     def relations(self, source, target, reltype):
         relation_map = {}
@@ -148,8 +147,8 @@ class DataAccessPoint:
     def technique_to_datasource(self):
         return self.relations("target_ref", "source_ref", "detects")
 
-    # Displays keys of dict with the number of the associated values in descending order, limited at the limit param.
-    def display_single(self, reldict, limit):
+    # Returns dictionary of pairs ordered in descending order. There will be a limit=int number of pairs
+    def get_key_values(self, reldict, limit):
         keys = sorted(reldict, key=lambda k: len(reldict[k]), reverse=True)
 
         valueLen = []
@@ -161,12 +160,16 @@ class DataAccessPoint:
         for key in keys:
             valueLen.append(len(reldict[key]))
 
+        limit = min(limit, len(keys))
+
         for k in range(limit):
             keys[k] = self.src.get(keys[k])["name"]
             outDict[keys[k]] = valueLen[k]
 
-        with open("data/mit_tech_m.json", 'w') as out:
-            json.dump(outDict, out)
+        return outDict
+
+        # with open("data/mit_tech_m.json", 'w') as out:
+        #     json.dump(outDict, out)
 
         # plt.barh(keys, valueLen)
         # plt.show()

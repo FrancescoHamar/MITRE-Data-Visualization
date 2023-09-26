@@ -1,7 +1,7 @@
 import DataAccessPoint as Dap
 from dash import Dash, dcc, html, Input, Output, callback
 import plotly.express as px
-import json
+import JsonLocalAccess as Jla
 
 app = Dash(__name__)
 
@@ -22,7 +22,7 @@ app.layout = html.Div([
 def update_bar_chart(day):
     fig = None
     if day == "1":
-        fig = px.bar(x=indict.keys(), y=indict.values())
+        fig = px.bar(x=None, y=None)
     # elif day == "2":
     #     fig = px.bar(x=keys2, y=value2)
     # elif day == "3":
@@ -33,10 +33,8 @@ def update_bar_chart(day):
 
 
 source = Dap.DataAccessPoint("ics_attack")
-source.display_single(source.technique_to_mitigate(), 10)
-with open("data/mit_tech_m.json", 'r') as indata:
-    indict = json.load(indata)
-
-if __name__ == "__main__":
-    app.run_server(debug=True)
+keyVals = source.get_key_values(source.datasource_to_technique(), 50)
+Jla.access_comp_tech_i(keyVals, True)
+keyVals = source.get_key_values(source.technique_to_datasource(), 50)
+Jla.access_tech_comp_i(keyVals, True)
 
