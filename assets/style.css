@@ -50,6 +50,16 @@ h1 {
     border-color: #cccccc
 }
 
+#drop4{
+    width: 20%;
+    flex-shrink: 1;
+    margin: 10px;
+    border-style: solid;
+    border-size: 1px;
+    border-radius: 8px;
+    border-color: #cccccc
+}
+
 #graphDiv {
     text-align: center;
     background-color: #fff;
@@ -59,7 +69,24 @@ h1 {
     font-size: 20px;
 }
 
+#chainDiv {
+    text-align: center;
+    background-color: #fff;
+    border-style: solid;
+    border-color: #000;
+    margin: 30px;
+    font-size: 20px;
+}
+
 #dropdown{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0;
+    font-size: 15px;
+}
+
+#dropdown2{
     display: flex;
     align-items: center;
     justify-content: center;

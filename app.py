@@ -11,14 +11,20 @@ dropdown1 = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"]
 dropdown2 = dcc.Dropdown(["Techniques per Mitigation", "Mitigations per Technique", "Techniques per Data source",
                          "Data sources per Technique"], "Techniques per Mitigation", id='drop2', clearable=False)
 dropdown3 = dcc.Dropdown(["10", "20", "30", "40", "50"], "10", id='drop3', clearable=False)
+dropdown4 = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Enterprise Attacks", id='drop4',
+                         clearable=False)
 graph = dcc.Graph(id='graph')
+graph2 = dcc.Graph(id='graph2')
 
 app.layout = html.Div(
     style={'margin': '5w'},
     children=[
         html.H1('Mitre Data Visualization'),
         html.Div(id='graphDiv', children=[html.H4("Effectiveness by the numbers"),
-                 html.Div(id='dropdown', children=[dropdown1, dropdown2, dropdown3]), graph])])
+                 html.Div(id='dropdown', children=[dropdown1, dropdown2, dropdown3]), graph]),
+        html.Div(id='chainDiv', children=[html.H4("Mapping to the Kill Chain"),
+                                          html.Div(id='dropdown2', children=[dropdown4]), graph2])
+    ])
 
 
 def retrieve_data(graph_num, limit, attack):
@@ -57,10 +63,5 @@ def update_bar_chart(attack_type, relation_type, limit):
     return fig
 
 
-Update.update_phase_mobile()
-Update.update_phase_enterprise()
-Update.update_phase_ics()
-
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
