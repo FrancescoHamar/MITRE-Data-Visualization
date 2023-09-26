@@ -7,7 +7,7 @@ def update_json(source, target, attack, data):
 
 
 def access_json(source, target, attack):
-    with open("data/mit_tech_m.json", 'r') as indata:
+    with open(f"data/{source}_{target}_{attack}.json", 'r') as indata:
         return json.load(indata)
 
 
