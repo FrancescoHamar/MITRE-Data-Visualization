@@ -2,7 +2,6 @@ import DataAccessPoint as Dap
 from dash import Dash, dcc, html, Input, Output, callback
 import plotly.express as px
 import JsonLocalAccess as Jla
-import pandas as pd
 
 app = Dash(__name__, external_stylesheets=["assets/styles.css"])
 

@@ -15,6 +15,10 @@ Understanding File format
  - Mitigation types between files change id. For example "Data Loss Prevention" course of action, will have a different id in 
 enterprise and in ics for example. This holds for both stix and att&ck Ids.
  - Figuring out relationships: no Sql like Json with objects of type relation which connect other objects
+ - "The x_mitre_data_sources field will still be maintained on enterprise techniques for backwards-compatibility purposes but we advise against 
+its use as it does not include the full context of the data model."
+ - "Data components are nested within a data source but have their own STIX object."
+
 
 About the problem in particular:
  - After having looked through all of the above and thinking about code formatting this is conclusion:
@@ -26,7 +30,9 @@ of the resources per item, or simply count them as one
  - Quite sadly, when I got to the killchain mapping part I realized that there exists an object called x-mitre-data-component which is
 a data source that detects the attack techniques. This made much more sense with the assignment so I will keep existing code for the
 external resources.
- - Big Decision of saving data of top 50 results in json files and pulling data from there to populate graphs. I will include the possibility to refresh the data in the app
+ - Big Decision of saving data of top 50 results in json files and pulling data from there to populate graphs. I will include the possibility 
+to refresh the data in the app
+ - When it comes to the bonus with the kill chain, I will do a section apart from everything as I find it a bit more complex to understand it
 
 
 Code Formatting
@@ -38,20 +44,31 @@ Code Formatting
  - I will reformat slightly the code that check the technique-mitigation relationship to fit any kind of relationship, and call functions
 to assign target, source, and relation type variables to avoid runtime errors
  - Reformatting all logic to a Data Access Point class
- - A lot of code duplication due to not wanting to manually pass parameters in higher level logic. I genuinly don't know if this is correct usage. The abstract function that would fit everything does exist,
-however dealing with parameters in the app itself seems wrong, this way I end up with a lot of duplication of specific but short functions.
- - Trying to reduce code duplications I produced
+ - A lot of code duplication due to not wanting to manually pass parameters in higher level logic. I genuinly don't know if this is correct usage. 
+The abstract function that would fit everything does exist, however dealing with parameters in the app itself seems wrong, this way I end up with 
+a lot of duplication of specific but short functions.
+ - Trying to reduce code duplications I produced. Managed a bit in the main app.py, might clean up even more the update functions out of it to make 
+it even more legible. Jla file is a disaster from this point of view but I find it too late and too unnecessary to change it.
 
 
 Output
  - Starting out by visualizing data in bar plots in descending order with keys and number of associated values to answer questions 
 graphically
- - Big Issues: Way too slow computations and waiting times for server, O(n^2) everywhere. Accessing data from server at multiple instances (maybe I should've just downloaded the json files and read locally :( )
+ - Big Issues: Way too slow computations and waiting times for server, O(n^2) everywhere. Accessing data from server at multiple instances (maybe I 
+should've just downloaded the json files and read locally :( )
  - Regardless of this I will continue with a webapp, hoping that passing graphs over will work with something like flask
  - Graphs can be shuffled through with two dropdown menus that switch between attack types and relation types
  - Formatting jsons to be a list of tuples (lists again), in order to be able to access first n elements
 
 Webapp
  - Using Dash for data visualization
- - It takes waaay too long to load in the data, webapp has to load for too much time. I am considering preloading the data and displaying from there on presentation
+ - It takes waaay too long to load in the data, webapp has to load for too much time. I am considering preloading the data and displaying from there 
+on presentation
+
+
+Kill Chain
+ - Some techniques have multiple phases associated to them
+ - If I count the number of techniques per phase, then associate the number of mitigations and data components per technique, I will be able to see how many techniques,
+d.s, and mitigations there are in each phase
+
 

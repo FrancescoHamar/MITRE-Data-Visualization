@@ -1,9 +1,6 @@
 from taxii2client.v20 import Collection
 from stix2 import Filter, TAXIICollectionSource, CompositeDataSource
 from DataSources import DataSources
-import json
-import matplotlib.pyplot as plt
-import pandas as pd
 
 
 class DataAccessPoint:
