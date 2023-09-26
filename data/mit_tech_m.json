@@ -1,1 +1,13 @@
-{"Point & Tag Identification": 8, "Program Upload": 8, "Activate Firmware Update Mode": 8, "Exploitation of Remote Services": 8, "Device Restart/Shutdown": 9, "Remote Services": 9, "Valid Accounts": 10, "Program Download": 10, "Module Firmware": 12, "System Firmware": 13}
+{
+"User Guidance": 37,
+"Use Recent OS Version": 32,
+"Security Updates": 16,
+"Enterprise Policy": 15,
+"Attestation": 13,
+"Deploy Compromised Device Detection Method": 9,
+"System Partition Integrity": 7,
+"Application Developer Guidance": 7,
+"Lock Bootloader": 3,
+"Interconnection Filtering": 2,
+"Encrypt Network Traffic": 1
+}

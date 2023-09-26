@@ -1,0 +1,17 @@
+{
+"API Calls": 33,
+"System Settings": 30,
+"Permissions Requests": 26,
+"Host Status": 11,
+"System Notifications": 7,
+"Network Communication": 7,
+"Permissions Request": 4,
+"Network Traffic Flow": 3,
+"Network Traffic Content": 2,
+"Process Metadata": 2,
+"Network Connection Creation": 2,
+"Process Termination": 1,
+"Command Execution": 1,
+"Process Creation": 1,
+"Protected Configuration": 1
+}

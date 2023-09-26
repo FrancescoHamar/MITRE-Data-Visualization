@@ -155,7 +155,7 @@ class DataAccessPoint:
         outDict = {}
 
         keys = keys[:limit]
-        keys = keys[::-1]
+        # keys = keys[::-1]  FOR REVERSING LIST
 
         for key in keys:
             valueLen.append(len(reldict[key]))
