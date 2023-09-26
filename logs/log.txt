@@ -49,6 +49,7 @@ The abstract function that would fit everything does exist, however dealing with
 a lot of duplication of specific but short functions.
  - Trying to reduce code duplications I produced. Managed a bit in the main app.py, might clean up even more the update functions out of it to make 
 it even more legible. Jla file is a disaster from this point of view but I find it too late and too unnecessary to change it.
+ - Created Update file to store all update related functions
 
 
 Output
@@ -68,7 +69,9 @@ on presentation
 
 Kill Chain
  - Some techniques have multiple phases associated to them
- - If I count the number of techniques per phase, then associate the number of mitigations and data components per technique, I will be able to see how many techniques,
-d.s, and mitigations there are in each phase
+ - If I count the number of techniques per phase, then associate the number of mitigations and data components per technique, I will be able to see how 
+many techniques, d.s, and mitigations there are in each phase.
+ - There will be some errors with some mitigations that only appear in certain phases but will be counted for all phases associated to the technique 
+that they mitigate (same for ds)
 
 

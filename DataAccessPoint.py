@@ -172,3 +172,25 @@ class DataAccessPoint:
         # plt.barh(keys, valueLen)
         # plt.show()
         # return keys, valueLen
+
+    # Get techniques per kill phase
+    def get_technique_phase(self):
+        phases = {}
+        query_techniques = self.src.query([Filter("type", "=", "attack-pattern")])
+        for technique in query_techniques:
+            query_mitigations = self.src.query([Filter("type", "=", "relationship"),
+                                                Filter('relationship_type', '=', "mitigates"),
+                                                Filter("target_ref", "=", technique["id"])])
+
+            query_components = self.src.query([Filter("type", "=", "relationship"),
+                                               Filter('relationship_type', '=', "detects"),
+                                               Filter("target_ref", "=", technique["id"])])
+
+            for phase in technique["kill_chain_phases"]:
+                if phases[phase["name"]] is None:
+                    phases[phase["name"]] = [1, len(query_mitigations), len(query_components)]
+                else:
+                    phases[phase["name"]][0] += 1
+                    phases[phase["name"]][1] += len(query_mitigations)
+                    phases[phase["name"]][2] += len(query_components)
+        return phases
