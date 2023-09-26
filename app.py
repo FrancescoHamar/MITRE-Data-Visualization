@@ -7,34 +7,19 @@ import pandas as pd
 app = Dash(__name__, external_stylesheets=["assets/styles.css"])
 
 
-dropdown1 = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Ics Attacks", clearable=False)
+dropdown1 = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Enterprise Attacks", id='drop1',
+                         clearable=False)
 dropdown2 = dcc.Dropdown(["Techniques per Mitigation", "Mitigations per Technique", "Techniques per Data source",
-                         "Data sources per Technique"], "Techniques per Mitigation", clearable=False)
-dropdown3 = dcc.Dropdown(["10", "20", "30", "40", "50"], "10", clearable=False)
-graph = dcc.Graph()
+                         "Data sources per Technique"], "Techniques per Mitigation", id='drop2', clearable=False)
+dropdown3 = dcc.Dropdown(["10", "20", "30", "40", "50"], "10", id='drop3', clearable=False)
+graph = dcc.Graph(id='graph')
 
 app.layout = html.Div(
     style={'margin': '5w'},
     children=[
-        html.H1(
-            children='Mitre Data Visualization',
-            style={
-                'textAlign': 'center',
-                'color': '#f7f7f7',
-                'font-family': 'Arial, sans-serif',
-                'font-size': '36px',
-                'padding': '10px',
-                'background-color': '#3f3f3f',
-                'box-shadow': '0px 0px 10px rgba(0, 0, 0, 0.2)',
-                'margin': '0'
-            }
-        ),
-        dcc.Loading(
-            id="loading-1",
-            type="default",
-            children=html.Div(id="loading-output-1")
-        ),
-        html.Div([html.H4("Effectiveness by the numbers"), dropdown1, dropdown2, dropdown3, graph])])
+        html.H1('Mitre Data Visualization'),
+        html.Div(id='graphDiv', children=[html.H4("Effectiveness by the numbers"),
+                  html.Div(id='dropdown', children=[dropdown1, dropdown2, dropdown3]), graph])])
 
 
 def update_enterprise():
@@ -85,7 +70,7 @@ def retrieve_data(graph_num, limit, attack):
             return Jla.access_json("tech", "comp", attack, limit), "Number of Data Sources"
 
 
-@callback(Output(graph, "figure"), Input(dropdown1, 'value'), Input(dropdown2, 'value'), Input(dropdown3, 'value'))
+@callback(Output(graph, "figure"), Input('drop1', 'value'), Input('drop2', 'value'), Input('drop3', 'value'))
 def update_bar_chart(attack_type, relation_type, limit):
     limit = int(limit)
     fig = None
