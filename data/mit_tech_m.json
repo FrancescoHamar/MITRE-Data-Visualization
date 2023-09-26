@@ -1,13 +1,46 @@
-{
-"User Guidance": 37,
-"Use Recent OS Version": 32,
-"Security Updates": 16,
-"Enterprise Policy": 15,
-"Attestation": 13,
-"Deploy Compromised Device Detection Method": 9,
-"System Partition Integrity": 7,
-"Application Developer Guidance": 7,
-"Lock Bootloader": 3,
-"Interconnection Filtering": 2,
-"Encrypt Network Traffic": 1
-}
+[
+  [
+    "User Guidance",
+    37
+  ],
+  [
+    "Use Recent OS Version",
+    32
+  ],
+  [
+    "Security Updates",
+    16
+  ],
+  [
+    "Enterprise Policy",
+    15
+  ],
+  [
+    "Attestation",
+    13
+  ],
+  [
+    "Deploy Compromised Device Detection Method",
+    9
+  ],
+  [
+    "System Partition Integrity",
+    7
+  ],
+  [
+    "Application Developer Guidance",
+    7
+  ],
+  [
+    "Lock Bootloader",
+    3
+  ],
+  [
+    "Interconnection Filtering",
+    2
+  ],
+  [
+    "Encrypt Network Traffic",
+    1
+  ]
+]

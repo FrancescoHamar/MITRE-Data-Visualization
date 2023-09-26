@@ -1,52 +1,202 @@
-{
-"Masquerading": 8,
-"Indicator Removal on Host": 8,
-"Lateral Tool Transfer": 7,
-"Remote Services": 7,
-"Service Stop": 7,
-"User Execution": 6,
-"Adversary-in-the-Middle": 6,
-"Data from Local System": 5,
-"Scripting": 5,
-"Rogue Master": 5,
-"Unauthorized Command Message": 5,
-"Drive-by Compromise": 5,
-"Block Serial COM": 5,
-"Block Command Message": 5,
-"Block Reporting Message": 5,
-"Remote System Discovery": 4,
-"Network Connection Enumeration": 4,
-"Modify Program": 4,
-"Graphical User Interface": 4,
-"Spearphishing Attachment": 4,
-"Replication Through Removable Media": 4,
-"Module Firmware": 4,
-"System Firmware": 4,
-"Modify Parameter": 4,
-"Device Restart/Shutdown": 4,
-"Program Download": 4,
-"Alarm Suppression": 4,
-"Modify Alarm Settings": 4,
-"Remote System Information Discovery": 4,
-"Spoof Reporting Message": 4,
-"Denial of Service": 4,
-"Data Destruction": 4,
-"Automated Collection": 4,
-"Data from Information Repositories": 3,
-"Valid Accounts": 3,
-"Modify Controller Tasking": 3,
-"Command-Line Interface": 3,
-"Program Upload": 3,
-"Wireless Compromise": 3,
-"Internet Accessible Device": 3,
-"External Remote Services": 3,
-"Brute Force I/O": 3,
-"Change Operating Mode": 3,
-"Activate Firmware Update Mode": 3,
-"Change Credential": 2,
-"Hardcoded Credentials": 2,
-"Commonly Used Port": 2,
-"Hooking": 2,
-"Transient Cyber Asset": 2,
-"Monitor Process State": 2
-}
+[
+  [
+    "Masquerading",
+    8
+  ],
+  [
+    "Indicator Removal on Host",
+    8
+  ],
+  [
+    "Lateral Tool Transfer",
+    7
+  ],
+  [
+    "Remote Services",
+    7
+  ],
+  [
+    "Service Stop",
+    7
+  ],
+  [
+    "User Execution",
+    6
+  ],
+  [
+    "Adversary-in-the-Middle",
+    6
+  ],
+  [
+    "Data from Local System",
+    5
+  ],
+  [
+    "Scripting",
+    5
+  ],
+  [
+    "Rogue Master",
+    5
+  ],
+  [
+    "Unauthorized Command Message",
+    5
+  ],
+  [
+    "Drive-by Compromise",
+    5
+  ],
+  [
+    "Block Serial COM",
+    5
+  ],
+  [
+    "Block Command Message",
+    5
+  ],
+  [
+    "Block Reporting Message",
+    5
+  ],
+  [
+    "Remote System Discovery",
+    4
+  ],
+  [
+    "Network Connection Enumeration",
+    4
+  ],
+  [
+    "Modify Program",
+    4
+  ],
+  [
+    "Graphical User Interface",
+    4
+  ],
+  [
+    "Spearphishing Attachment",
+    4
+  ],
+  [
+    "Replication Through Removable Media",
+    4
+  ],
+  [
+    "Module Firmware",
+    4
+  ],
+  [
+    "System Firmware",
+    4
+  ],
+  [
+    "Modify Parameter",
+    4
+  ],
+  [
+    "Device Restart/Shutdown",
+    4
+  ],
+  [
+    "Program Download",
+    4
+  ],
+  [
+    "Alarm Suppression",
+    4
+  ],
+  [
+    "Modify Alarm Settings",
+    4
+  ],
+  [
+    "Remote System Information Discovery",
+    4
+  ],
+  [
+    "Spoof Reporting Message",
+    4
+  ],
+  [
+    "Denial of Service",
+    4
+  ],
+  [
+    "Data Destruction",
+    4
+  ],
+  [
+    "Automated Collection",
+    4
+  ],
+  [
+    "Data from Information Repositories",
+    3
+  ],
+  [
+    "Valid Accounts",
+    3
+  ],
+  [
+    "Modify Controller Tasking",
+    3
+  ],
+  [
+    "Command-Line Interface",
+    3
+  ],
+  [
+    "Program Upload",
+    3
+  ],
+  [
+    "Wireless Compromise",
+    3
+  ],
+  [
+    "Internet Accessible Device",
+    3
+  ],
+  [
+    "External Remote Services",
+    3
+  ],
+  [
+    "Brute Force I/O",
+    3
+  ],
+  [
+    "Change Operating Mode",
+    3
+  ],
+  [
+    "Activate Firmware Update Mode",
+    3
+  ],
+  [
+    "Change Credential",
+    2
+  ],
+  [
+    "Hardcoded Credentials",
+    2
+  ],
+  [
+    "Commonly Used Port",
+    2
+  ],
+  [
+    "Hooking",
+    2
+  ],
+  [
+    "Transient Cyber Asset",
+    2
+  ],
+  [
+    "Monitor Process State",
+    2
+  ]
+]

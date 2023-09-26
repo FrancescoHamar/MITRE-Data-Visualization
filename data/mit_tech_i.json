@@ -1,52 +1,202 @@
-{
-"Network Segmentation": 28,
-"Network Allowlists": 23,
-"Software Process and Device Authentication": 17,
-"Communication Authenticity": 16,
-"Access Management": 15,
-"Filter Network Traffic": 15,
-"Audit": 14,
-"Human User Authentication": 13,
-"Out-of-Band Communications Channel": 12,
-"Authorization Enforcement": 11,
-"Data Backup": 10,
-"Code Signing": 10,
-"Restrict File and Directory Permissions": 8,
-"Update Software": 8,
-"Disable or Remove Feature or Program": 8,
-"Encrypt Sensitive Information": 7,
-"Static Network Configuration": 7,
-"Network Intrusion Prevention": 7,
-"Redundancy of Service": 6,
-"Execution Prevention": 6,
-"Application Isolation and Sandboxing": 6,
-"User Account Management": 6,
-"Mitigation Limited or Not Effective": 6,
-"Privileged Account Management": 6,
-"Password Policies": 5,
-"Exploit Protection": 5,
-"Encrypt Network Traffic": 5,
-"User Training": 4,
-"Antivirus/Antimalware": 3,
-"Threat Intelligence Program": 3,
-"Multi-factor Authentication": 3,
-"Restrict Web-Based Content": 3,
-"Vulnerability Scanning": 3,
-"Data Loss Prevention": 2,
-"Validate Program Inputs": 2,
-"Account Use Policies": 2,
-"Boot Integrity": 2,
-"Safety Instrumented Systems": 2,
-"Mechanical Protection Layers": 2,
-"Minimize Wireless Signal Propagation": 2,
-"Supply Chain Management": 1,
-"SSL/TLS Inspection": 1,
-"Restrict Library Loading": 1,
-"Active Directory Configuration": 1,
-"Operating System Configuration": 1,
-"Application Developer Guidance": 1,
-"Operational Information Confidentiality": 1,
-"Watchdog Timers": 1,
-"Limit Hardware Installation": 1,
-"Limit Access to Resource Over Network": 1
-}
+[
+  [
+    "Network Segmentation",
+    28
+  ],
+  [
+    "Network Allowlists",
+    23
+  ],
+  [
+    "Software Process and Device Authentication",
+    17
+  ],
+  [
+    "Communication Authenticity",
+    16
+  ],
+  [
+    "Access Management",
+    15
+  ],
+  [
+    "Filter Network Traffic",
+    15
+  ],
+  [
+    "Audit",
+    14
+  ],
+  [
+    "Human User Authentication",
+    13
+  ],
+  [
+    "Out-of-Band Communications Channel",
+    12
+  ],
+  [
+    "Authorization Enforcement",
+    11
+  ],
+  [
+    "Data Backup",
+    10
+  ],
+  [
+    "Code Signing",
+    10
+  ],
+  [
+    "Restrict File and Directory Permissions",
+    8
+  ],
+  [
+    "Update Software",
+    8
+  ],
+  [
+    "Disable or Remove Feature or Program",
+    8
+  ],
+  [
+    "Encrypt Sensitive Information",
+    7
+  ],
+  [
+    "Static Network Configuration",
+    7
+  ],
+  [
+    "Network Intrusion Prevention",
+    7
+  ],
+  [
+    "Redundancy of Service",
+    6
+  ],
+  [
+    "Execution Prevention",
+    6
+  ],
+  [
+    "Application Isolation and Sandboxing",
+    6
+  ],
+  [
+    "User Account Management",
+    6
+  ],
+  [
+    "Mitigation Limited or Not Effective",
+    6
+  ],
+  [
+    "Privileged Account Management",
+    6
+  ],
+  [
+    "Password Policies",
+    5
+  ],
+  [
+    "Exploit Protection",
+    5
+  ],
+  [
+    "Encrypt Network Traffic",
+    5
+  ],
+  [
+    "User Training",
+    4
+  ],
+  [
+    "Antivirus/Antimalware",
+    3
+  ],
+  [
+    "Threat Intelligence Program",
+    3
+  ],
+  [
+    "Multi-factor Authentication",
+    3
+  ],
+  [
+    "Restrict Web-Based Content",
+    3
+  ],
+  [
+    "Vulnerability Scanning",
+    3
+  ],
+  [
+    "Data Loss Prevention",
+    2
+  ],
+  [
+    "Validate Program Inputs",
+    2
+  ],
+  [
+    "Account Use Policies",
+    2
+  ],
+  [
+    "Boot Integrity",
+    2
+  ],
+  [
+    "Safety Instrumented Systems",
+    2
+  ],
+  [
+    "Mechanical Protection Layers",
+    2
+  ],
+  [
+    "Minimize Wireless Signal Propagation",
+    2
+  ],
+  [
+    "Supply Chain Management",
+    1
+  ],
+  [
+    "SSL/TLS Inspection",
+    1
+  ],
+  [
+    "Restrict Library Loading",
+    1
+  ],
+  [
+    "Active Directory Configuration",
+    1
+  ],
+  [
+    "Operating System Configuration",
+    1
+  ],
+  [
+    "Application Developer Guidance",
+    1
+  ],
+  [
+    "Operational Information Confidentiality",
+    1
+  ],
+  [
+    "Watchdog Timers",
+    1
+  ],
+  [
+    "Limit Hardware Installation",
+    1
+  ],
+  [
+    "Limit Access to Resource Over Network",
+    1
+  ]
+]

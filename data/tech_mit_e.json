@@ -1,52 +1,202 @@
-{
-"Unsecured Credentials": 11,
-"Hijack Execution Flow": 10,
-"Modify Authentication Process": 9,
-"OS Credential Dumping": 9,
-"Software Deployment Tools": 9,
-"Remote Desktop Protocol": 8,
-"Exploitation of Remote Services": 8,
-"Valid Accounts": 7,
-"Cloud Accounts": 7,
-"Create or Modify System Process": 7,
-"Command and Scripting Interpreter": 7,
-"LSASS Memory": 7,
-"Adversary-in-the-Middle": 7,
-"RDP Hijacking": 7,
-"Exfiltration Over Alternative Protocol": 6,
-"Inter-Process Communication": 6,
-"Server Software Component": 6,
-"TFTP Boot": 6,
-"Network Device Configuration Dump": 6,
-"SNMP (MIB Dump)": 6,
-"Data from Configuration Repository": 6,
-"Downgrade System Image": 6,
-"Patch System Image": 6,
-"Modify System Image": 6,
-"ARP Cache Poisoning": 6,
-"Abuse Elevation Control Mechanism": 6,
-"Data from Cloud Storage": 6,
-"Exploit Public-Facing Application": 6,
-"Impair Defenses": 5,
-"Masquerading": 5,
-"Container Administration Command": 5,
-"Account Manipulation": 5,
-"Windows Service": 5,
-"Spearphishing Link": 5,
-"Visual Basic": 5,
-"User Execution": 5,
-"PowerShell": 5,
-"Browser Extensions": 5,
-"Exploitation for Privilege Escalation": 5,
-"Spearphishing Attachment": 5,
-"Phishing": 5,
-"Network Address Translation Traversal": 5,
-"Network Boundary Bridging": 5,
-"Cached Domain Credentials": 5,
-"Escape to Host": 4,
-"Disable or Modify System Firewall": 4,
-"Steal or Forge Authentication Certificates": 4,
-"Disable or Modify Tools": 4,
-"Additional Cloud Credentials": 4,
-"Kernel Modules and Extensions": 4
-}
+[
+  [
+    "Unsecured Credentials",
+    11
+  ],
+  [
+    "Hijack Execution Flow",
+    10
+  ],
+  [
+    "Modify Authentication Process",
+    9
+  ],
+  [
+    "OS Credential Dumping",
+    9
+  ],
+  [
+    "Software Deployment Tools",
+    9
+  ],
+  [
+    "Remote Desktop Protocol",
+    8
+  ],
+  [
+    "Exploitation of Remote Services",
+    8
+  ],
+  [
+    "Valid Accounts",
+    7
+  ],
+  [
+    "Cloud Accounts",
+    7
+  ],
+  [
+    "Create or Modify System Process",
+    7
+  ],
+  [
+    "Command and Scripting Interpreter",
+    7
+  ],
+  [
+    "LSASS Memory",
+    7
+  ],
+  [
+    "Adversary-in-the-Middle",
+    7
+  ],
+  [
+    "RDP Hijacking",
+    7
+  ],
+  [
+    "Exfiltration Over Alternative Protocol",
+    6
+  ],
+  [
+    "Inter-Process Communication",
+    6
+  ],
+  [
+    "Server Software Component",
+    6
+  ],
+  [
+    "TFTP Boot",
+    6
+  ],
+  [
+    "Network Device Configuration Dump",
+    6
+  ],
+  [
+    "SNMP (MIB Dump)",
+    6
+  ],
+  [
+    "Data from Configuration Repository",
+    6
+  ],
+  [
+    "Downgrade System Image",
+    6
+  ],
+  [
+    "Patch System Image",
+    6
+  ],
+  [
+    "Modify System Image",
+    6
+  ],
+  [
+    "ARP Cache Poisoning",
+    6
+  ],
+  [
+    "Abuse Elevation Control Mechanism",
+    6
+  ],
+  [
+    "Data from Cloud Storage",
+    6
+  ],
+  [
+    "Exploit Public-Facing Application",
+    6
+  ],
+  [
+    "Impair Defenses",
+    5
+  ],
+  [
+    "Masquerading",
+    5
+  ],
+  [
+    "Container Administration Command",
+    5
+  ],
+  [
+    "Account Manipulation",
+    5
+  ],
+  [
+    "Windows Service",
+    5
+  ],
+  [
+    "Spearphishing Link",
+    5
+  ],
+  [
+    "Visual Basic",
+    5
+  ],
+  [
+    "User Execution",
+    5
+  ],
+  [
+    "PowerShell",
+    5
+  ],
+  [
+    "Browser Extensions",
+    5
+  ],
+  [
+    "Exploitation for Privilege Escalation",
+    5
+  ],
+  [
+    "Spearphishing Attachment",
+    5
+  ],
+  [
+    "Phishing",
+    5
+  ],
+  [
+    "Network Address Translation Traversal",
+    5
+  ],
+  [
+    "Network Boundary Bridging",
+    5
+  ],
+  [
+    "Cached Domain Credentials",
+    5
+  ],
+  [
+    "Escape to Host",
+    4
+  ],
+  [
+    "Disable or Modify System Firewall",
+    4
+  ],
+  [
+    "Steal or Forge Authentication Certificates",
+    4
+  ],
+  [
+    "Disable or Modify Tools",
+    4
+  ],
+  [
+    "Additional Cloud Credentials",
+    4
+  ],
+  [
+    "Kernel Modules and Extensions",
+    4
+  ]
+]

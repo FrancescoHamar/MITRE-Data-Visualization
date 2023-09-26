@@ -153,7 +153,7 @@ class DataAccessPoint:
         keys = sorted(reldict, key=lambda k: len(reldict[k]), reverse=True)
 
         valueLen = []
-        outDict = {}
+        outDict = []
 
         keys = keys[:limit]
         # keys = keys[::-1]  FOR REVERSING LIST
@@ -165,7 +165,7 @@ class DataAccessPoint:
 
         for k in range(limit):
             keys[k] = self.src.get(keys[k])["name"]
-            outDict[keys[k]] = valueLen[k]
+            outDict.append((keys[k], valueLen[k]))
 
         return outDict
 

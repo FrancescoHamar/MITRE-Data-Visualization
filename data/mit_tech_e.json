@@ -1,45 +1,174 @@
-{
-"Privileged Account Management": 105,
-"User Account Management": 89,
-"Pre-compromise": 82,
-"Audit": 78,
-"Execution Prevention": 66,
-"Disable or Remove Feature or Program": 59,
-"Restrict File and Directory Permissions": 56,
-"Network Intrusion Prevention": 55,
-"Behavior Prevention on Endpoint": 46,
-"Password Policies": 44,
-"User Training": 41,
-"Multi-factor Authentication": 41,
-"Filter Network Traffic": 40,
-"Operating System Configuration": 39,
-"Network Segmentation": 35,
-"Update Software": 32,
-"Encrypt Sensitive Information": 29,
-"Software Configuration": 24,
-"Restrict Web-Based Content": 23,
-"Restrict Registry Permissions": 20,
-"Code Signing": 20,
-"Limit Access to Resource Over Network": 16,
-"Antivirus/Antimalware": 15,
-"Active Directory Configuration": 14,
-"Application Isolation and Sandboxing": 12,
-"Remote Data Storage": 11,
-"Boot Integrity": 11,
-"Exploit Protection": 11,
-"Application Developer Guidance": 9,
-"Data Loss Prevention": 9,
-"Data Backup": 9,
-"Credential Access Protection": 8,
-"Account Use Policies": 7,
-"Privileged Process Integrity": 7,
-"User Account Control": 7,
-"Limit Software Installation": 6,
-"Vulnerability Scanning": 5,
-"Limit Hardware Installation": 4,
-"SSL/TLS Inspection": 4,
-"Threat Intelligence Program": 4,
-"Restrict Library Loading": 3,
-"Environment Variable Permissions": 2,
-"Do Not Mitigate": 2
-}
+[
+  [
+    "Privileged Account Management",
+    105
+  ],
+  [
+    "User Account Management",
+    89
+  ],
+  [
+    "Pre-compromise",
+    82
+  ],
+  [
+    "Audit",
+    78
+  ],
+  [
+    "Execution Prevention",
+    66
+  ],
+  [
+    "Disable or Remove Feature or Program",
+    59
+  ],
+  [
+    "Restrict File and Directory Permissions",
+    56
+  ],
+  [
+    "Network Intrusion Prevention",
+    55
+  ],
+  [
+    "Behavior Prevention on Endpoint",
+    46
+  ],
+  [
+    "Password Policies",
+    44
+  ],
+  [
+    "User Training",
+    41
+  ],
+  [
+    "Multi-factor Authentication",
+    41
+  ],
+  [
+    "Filter Network Traffic",
+    40
+  ],
+  [
+    "Operating System Configuration",
+    39
+  ],
+  [
+    "Network Segmentation",
+    35
+  ],
+  [
+    "Update Software",
+    32
+  ],
+  [
+    "Encrypt Sensitive Information",
+    29
+  ],
+  [
+    "Software Configuration",
+    24
+  ],
+  [
+    "Restrict Web-Based Content",
+    23
+  ],
+  [
+    "Restrict Registry Permissions",
+    20
+  ],
+  [
+    "Code Signing",
+    20
+  ],
+  [
+    "Limit Access to Resource Over Network",
+    16
+  ],
+  [
+    "Antivirus/Antimalware",
+    15
+  ],
+  [
+    "Active Directory Configuration",
+    14
+  ],
+  [
+    "Application Isolation and Sandboxing",
+    12
+  ],
+  [
+    "Remote Data Storage",
+    11
+  ],
+  [
+    "Boot Integrity",
+    11
+  ],
+  [
+    "Exploit Protection",
+    11
+  ],
+  [
+    "Application Developer Guidance",
+    9
+  ],
+  [
+    "Data Loss Prevention",
+    9
+  ],
+  [
+    "Data Backup",
+    9
+  ],
+  [
+    "Credential Access Protection",
+    8
+  ],
+  [
+    "Account Use Policies",
+    7
+  ],
+  [
+    "Privileged Process Integrity",
+    7
+  ],
+  [
+    "User Account Control",
+    7
+  ],
+  [
+    "Limit Software Installation",
+    6
+  ],
+  [
+    "Vulnerability Scanning",
+    5
+  ],
+  [
+    "Limit Hardware Installation",
+    4
+  ],
+  [
+    "SSL/TLS Inspection",
+    4
+  ],
+  [
+    "Threat Intelligence Program",
+    4
+  ],
+  [
+    "Restrict Library Loading",
+    3
+  ],
+  [
+    "Environment Variable Permissions",
+    2
+  ],
+  [
+    "Do Not Mitigate",
+    2
+  ]
+]

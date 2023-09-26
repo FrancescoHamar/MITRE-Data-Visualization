@@ -1,36 +1,138 @@
-{
-"Network Traffic Content": 35,
-"Application Log Content": 33,
-"Network Traffic Flow": 23,
-"Process Creation": 18,
-"Command Execution": 15,
-"Device Alarm": 13,
-"OS API Execution": 8,
-"Process History/Live Data": 8,
-"Logon Session Creation": 7,
-"File Access": 6,
-"Process/Event Alarm": 5,
-"File Modification": 5,
-"Script Execution": 4,
-"Software": 4,
-"File Metadata": 4,
-"File Creation": 4,
-"Windows Registry Key Modification": 4,
-"Asset Inventory": 4,
-"Process Termination": 4,
-"Network Share Access": 3,
-"Logon Session Metadata": 3,
-"Process Metadata": 3,
-"Module Load": 3,
-"Network Connection Creation": 3,
-"Firmware Modification": 3,
-"Service Creation": 2,
-"File Deletion": 2,
-"Service Modification": 1,
-"Scheduled Job Creation": 1,
-"User Account Authentication": 1,
-"Drive Creation": 1,
-"Service Metadata": 1,
-"Scheduled Job Modification": 1,
-"Windows Registry Key Deletion": 1
-}
+[
+  [
+    "Network Traffic Content",
+    35
+  ],
+  [
+    "Application Log Content",
+    33
+  ],
+  [
+    "Network Traffic Flow",
+    23
+  ],
+  [
+    "Process Creation",
+    18
+  ],
+  [
+    "Command Execution",
+    15
+  ],
+  [
+    "Device Alarm",
+    13
+  ],
+  [
+    "OS API Execution",
+    8
+  ],
+  [
+    "Process History/Live Data",
+    8
+  ],
+  [
+    "Logon Session Creation",
+    7
+  ],
+  [
+    "File Access",
+    6
+  ],
+  [
+    "Process/Event Alarm",
+    5
+  ],
+  [
+    "File Modification",
+    5
+  ],
+  [
+    "Script Execution",
+    4
+  ],
+  [
+    "Software",
+    4
+  ],
+  [
+    "File Metadata",
+    4
+  ],
+  [
+    "File Creation",
+    4
+  ],
+  [
+    "Windows Registry Key Modification",
+    4
+  ],
+  [
+    "Asset Inventory",
+    4
+  ],
+  [
+    "Process Termination",
+    4
+  ],
+  [
+    "Network Share Access",
+    3
+  ],
+  [
+    "Logon Session Metadata",
+    3
+  ],
+  [
+    "Process Metadata",
+    3
+  ],
+  [
+    "Module Load",
+    3
+  ],
+  [
+    "Network Connection Creation",
+    3
+  ],
+  [
+    "Firmware Modification",
+    3
+  ],
+  [
+    "Service Creation",
+    2
+  ],
+  [
+    "File Deletion",
+    2
+  ],
+  [
+    "Service Modification",
+    1
+  ],
+  [
+    "Scheduled Job Creation",
+    1
+  ],
+  [
+    "User Account Authentication",
+    1
+  ],
+  [
+    "Drive Creation",
+    1
+  ],
+  [
+    "Service Metadata",
+    1
+  ],
+  [
+    "Scheduled Job Modification",
+    1
+  ],
+  [
+    "Windows Registry Key Deletion",
+    1
+  ]
+]
