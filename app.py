@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 
 
 app = Dash(__name__, external_stylesheets=["assets/styles.css"])
+server = app.server
 app.title = "MITRE ATT&CK Data"
 
 
