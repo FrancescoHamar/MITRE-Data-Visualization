@@ -31,3 +31,4 @@ Werkzeug==2.2.3
 
 plotly~=5.17.0
 dash~=2.13.0
+pandas~=2.1.1

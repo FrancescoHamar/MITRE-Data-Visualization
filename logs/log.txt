@@ -77,3 +77,6 @@ that they mitigate (same for ds)
  lesson on efficient code and not having downloaded and set up locally the json files
 
 
+Deploying
+ - Hardest part of the project so far, this is something I've never done
+

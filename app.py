@@ -2,6 +2,7 @@ from dash import Dash, dcc, html, Input, Output, callback
 import plotly.express as px
 import JsonLocalAccess as Jla
 import plotly.graph_objects as go
+import pandas
 
 
 app = Dash(__name__, external_stylesheets=["assets/styles.css"])
@@ -108,6 +109,7 @@ def update_chain_bar_chart(attack_type):
         go.Bar(name='Mitigations', x=x_list, y=mit_list),
         go.Bar(name='Data Components', x=x_list, y=source_list)
     ])
+    pandas.DataFrame()
     # fig = px.bar(x=key_list, y=value_list)
     # fig.update_layout(yaxis_title=axis_title, xaxis_title=None)
     return fig
