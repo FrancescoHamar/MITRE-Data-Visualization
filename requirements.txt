@@ -28,3 +28,6 @@ taxii2-client==2.3.0
 urllib3==2.0.5
 weakrefmethod==1.0.3
 Werkzeug==2.2.3
+
+plotly~=5.17.0
+dash~=2.13.0
