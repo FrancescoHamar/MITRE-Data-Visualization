@@ -127,4 +127,4 @@ def update_chain_bar_chart(attack_type):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
