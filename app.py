@@ -2,7 +2,6 @@ from dash import Dash, dcc, html, Input, Output, callback
 import plotly.express as px
 import JsonLocalAccess as Jla
 import plotly.graph_objects as go
-import Update
 
 
 app = Dash(__name__, external_stylesheets=["assets/styles.css"])
@@ -89,7 +88,6 @@ def update_chain_bar_chart(attack_type):
             tech_data = retrieve_chain_data('e')
 
     for item in tech_data[0]:
-        print(item)
         graph_dict[item] = [len(tech_data[0][item]), 0, 0]
 
     for item in tech_data[1]:
@@ -120,4 +118,4 @@ def update_chain_bar_chart(attack_type):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
