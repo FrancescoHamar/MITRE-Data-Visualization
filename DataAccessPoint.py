@@ -5,6 +5,9 @@ from DataSources import DataSources
 
 class DataAccessPoint:
 
+    # Class constructor expects 0 or 1 argument.
+    # If no arguments are given it will query all domains, else it expects the type of attack by string such as:
+    # enterprise_attack | mobile_attack | ics_attack
     def __init__(self, *args):
         self.src = None
         if len(args) == 0:
@@ -166,20 +169,12 @@ class DataAccessPoint:
 
         return outDict
 
-        # with open("data/mit_tech_m.json", 'w') as out:
-        #     json.dump(outDict, out)
-
-        # plt.barh(keys, valueLen)
-        # plt.show()
-        # return keys, valueLen
-
-    # Get techniques per kill phase
+    # Returns three dictionaries with the Phase Names as keys.
+    # The values respectively are the IDs of the techniques, mitigations, data sources present in that specific phase
     def get_technique_phase(self):
         technique_phase = {}
         mitigation_phase = {}
         datacomp_phase = {}
-        mit_temp = []
-        source_temp = []
         query_techniques = self.src.query([Filter("type", "=", "attack-pattern")])
         query_mitigations = self.src.query([Filter("type", "=", "relationship"),
                                             Filter('relationship_type', '=', "mitigates")])

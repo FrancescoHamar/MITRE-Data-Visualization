@@ -4,33 +4,39 @@ import JsonLocalAccess as Jla
 import plotly.graph_objects as go
 import pandas
 
-
+# Initializing app and server
 app = Dash(__name__, external_stylesheets=["assets/styles.css"])
 server = app.server
 app.title = "MITRE ATT&CK Data"
 
-
-dropdown1 = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Enterprise Attacks", id='drop1',
-                         clearable=False)
-dropdown2 = dcc.Dropdown(["Techniques per Mitigation", "Mitigations per Technique", "Techniques per Data source",
+# Dropdown menus used as input for graphs
+g1_attack_drop = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Enterprise Attacks", id='drop1',
+                              clearable=False)
+g1_option_drop = dcc.Dropdown(["Techniques per Mitigation", "Mitigations per Technique", "Techniques per Data source",
                          "Data sources per Technique"], "Techniques per Mitigation", id='drop2', clearable=False)
-dropdown3 = dcc.Dropdown(["10", "20", "30", "40", "50"], "10", id='drop3', clearable=False)
-dropdown4 = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Enterprise Attacks", id='drop4',
-                         clearable=False)
+g1_limit_drop = dcc.Dropdown(["10", "20", "30", "40", "50"], "10", id='drop3', clearable=False)
+g2_attack_drop = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Enterprise Attacks", id='drop4',
+                              clearable=False)
+
+# Initializing graphs
 relation_graph = dcc.Graph(id='graph')
 chain_graph = dcc.Graph(id='graph2')
 
+# Dash Html layout
 app.layout = html.Div(
-    style={'margin': '5w'},
     children=[
-        html.Div(id='banner', children=[html.Img(src='assets/mitre_attack_logo.png'), html.H1('Mitre Data Visualization')]),
+        html.Div(id='banner', children=[html.Img(src='assets/mitre_attack_logo.png'),
+                                        html.H1('Mitre Data Visualization')]),
         html.Div(id='graphDiv', children=[html.H4("Effectiveness by the numbers"),
-                 html.Div(id='dropdown', children=[dropdown1, dropdown2, dropdown3]), relation_graph]),
+                                          html.Div(id='dropdown', children=[g1_attack_drop, g1_option_drop,
+                                                                            g1_limit_drop]), relation_graph]),
         html.Div(id='chainDiv', children=[html.H4("Mapping to the Kill Chain"),
-                                          html.Div(id='dropdown2', children=[dropdown4]), chain_graph])
+                                          html.Div(id='dropdown2', children=[g2_attack_drop]), chain_graph])
     ])
 
 
+# Returns data from local Json files about the appropriate relationships
+# Takes as input the relationship wanted, the display limit, and the attack type to query the correct file
 def retrieve_relation_data(graph_num, limit, attack):
     match graph_num:
         case "Techniques per Mitigation":
@@ -43,10 +49,15 @@ def retrieve_relation_data(graph_num, limit, attack):
             return Jla.access_relation_json("tech", "comp", attack, limit), "Number of Data Sources"
 
 
+# Returns data from local Json files about the kill chain phases
+# Takes as input the type of attack to query correct file.
+# Function is trivial and could be deleted, I was expecting heavier logic here until code refactoring.
 def retrieve_chain_data(attack):
     return Jla.access_phases(attack)
 
 
+# Callback function that updates the Relations graph.
+# Takes as input the attack type, type of relation, and display limit and displays the data accordingly.
 @callback(Output(relation_graph, "figure"), Input('drop1', 'value'), Input('drop2', 'value'), Input('drop3', 'value'))
 def update_relation_bar_chart(attack_type, relation_type, limit):
     limit = int(limit)
@@ -71,6 +82,8 @@ def update_relation_bar_chart(attack_type, relation_type, limit):
     return fig
 
 
+# Callback function that updates the kill chain graph.
+# Takes as input the attack type dropdown and displays required the data accordingly.
 @callback(Output(chain_graph, "figure"), Input('drop4', 'value'))
 def update_chain_bar_chart(attack_type):
     fig = None
@@ -110,15 +123,8 @@ def update_chain_bar_chart(attack_type):
         go.Bar(name='Data Components', x=x_list, y=source_list)
     ])
     pandas.DataFrame()
-    # fig = px.bar(x=key_list, y=value_list)
-    # fig.update_layout(yaxis_title=axis_title, xaxis_title=None)
     return fig
 
 
-# Update.update_phase_ics()
-# Update.update_phase_enterprise()
-# Update.update_phase_mobile()
-
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
