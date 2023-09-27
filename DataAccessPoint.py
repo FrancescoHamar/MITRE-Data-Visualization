@@ -187,6 +187,8 @@ class DataAccessPoint:
                                            Filter('relationship_type', '=', "detects")])
 
         for technique in query_techniques:
+            mit_temp = []
+            source_temp = []
             for mit in query_mitigations:
                 if mit["target_ref"] == technique["id"]:
                     mit_temp.append(mit["source_ref"])

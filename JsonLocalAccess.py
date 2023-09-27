@@ -8,9 +8,8 @@ def update_relation_json(source, target, attack, data):
 
 def update_phases(attack, tech, mit, source):
     with open(f"data/phases_{attack}.json", 'w') as out:
-        json.dump(tech, out, indent=2)
-        json.dump(mit, out, indent=2)
-        json.dump(source, out, indent=2)
+        output = [tech, mit, source]
+        json.dump(output, out, indent=2)
 
 
 def access_relation_json(source, target, attack, limit):
