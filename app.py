@@ -6,6 +6,7 @@ import Update
 
 
 app = Dash(__name__, external_stylesheets=["assets/styles.css"])
+app.title = "MITRE ATT&CK Data"
 
 
 dropdown1 = dcc.Dropdown(["Enterprise Attacks", "Mobile Attacks", "Ics Attacks"], "Enterprise Attacks", id='drop1',
@@ -21,7 +22,7 @@ chain_graph = dcc.Graph(id='graph2')
 app.layout = html.Div(
     style={'margin': '5w'},
     children=[
-        html.H1('Mitre Data Visualization'),
+        html.Div(id='banner', children=[html.Img(src='assets/mitre_attack_logo.png'), html.H1('Mitre Data Visualization')]),
         html.Div(id='graphDiv', children=[html.H4("Effectiveness by the numbers"),
                  html.Div(id='dropdown', children=[dropdown1, dropdown2, dropdown3]), relation_graph]),
         html.Div(id='chainDiv', children=[html.H4("Mapping to the Kill Chain"),
