@@ -3,6 +3,7 @@ import plotly.express as px
 import JsonLocalAccess as Jla
 import plotly.graph_objects as go
 import pandas
+import time
 
 # Initializing app and server
 app = Dash(__name__, external_stylesheets=["assets/styles.css"])
@@ -29,9 +30,13 @@ app.layout = html.Div(
                                         html.H1('Mitre Data Visualization')]),
         html.Div(id='graphDiv', children=[html.H4("Effectiveness by the numbers"),
                                           html.Div(id='dropdown', children=[g1_attack_drop, g1_option_drop,
-                                                                            g1_limit_drop]), relation_graph]),
+                                                                            g1_limit_drop]),
+                                          dcc.Loading(id="loading-icon1",
+                                                      children=[html.Div(dcc.Graph(id='graph'))], type="default")]),
         html.Div(id='chainDiv', children=[html.H4("Mapping to the Kill Chain"),
-                                          html.Div(id='dropdown2', children=[g2_attack_drop]), chain_graph])
+                                          html.Div(id='dropdown2', children=[g2_attack_drop]),
+                                          dcc.Loading(id="loading-icon2",
+                                                      children=[html.Div(dcc.Graph(id='graph2'))], type="default")])
     ])
 
 
@@ -61,7 +66,6 @@ def retrieve_chain_data(attack):
 @callback(Output(relation_graph, "figure"), Input('drop1', 'value'), Input('drop2', 'value'), Input('drop3', 'value'))
 def update_relation_bar_chart(attack_type, relation_type, limit):
     limit = int(limit)
-    fig = None
     graph_data = None
     key_list = []
     value_list = []
@@ -86,7 +90,6 @@ def update_relation_bar_chart(attack_type, relation_type, limit):
 # Takes as input the attack type dropdown and displays required the data accordingly.
 @callback(Output(chain_graph, "figure"), Input('drop4', 'value'))
 def update_chain_bar_chart(attack_type):
-    fig = None
     graph_dict = {}
     tech_data = {}
     x_list = []
